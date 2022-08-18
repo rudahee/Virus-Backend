@@ -54,7 +54,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.and().authorizeRequests() // Access control to endpoints by roles.
 				.antMatchers(HttpMethod.POST, "/auth/sign-up").permitAll()
 				.antMatchers(HttpMethod.POST, "/auth/sign-in").not().authenticated()
-				.antMatchers(HttpMethod.PUT, "/auth/activate").permitAll()
 				.antMatchers(HttpMethod.GET, "/user/*").permitAll()
 				.antMatchers(HttpMethod.GET, "/user/me").hasRole("MEMBER")
 				.anyRequest().authenticated()

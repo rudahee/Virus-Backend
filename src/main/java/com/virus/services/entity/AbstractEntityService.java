@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Service;
 
 import com.virus.services.dto.AbstractDtoConverterService;
 
+@Service
 public abstract class AbstractEntityService<E, D, DC extends AbstractDtoConverterService<E, D>, R extends JpaRepository<E, ID>, ID> {
 
 	/*

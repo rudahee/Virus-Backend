@@ -56,7 +56,7 @@ public class JWTTokenProvider {
 	 */
 	public static boolean validateToken(String token) throws JwtException {
 		boolean valid = false;
-		
+
 		try {
 			Jwts.parser().setSigningKey(getKey()).parseClaimsJws(token);
 			valid = true;

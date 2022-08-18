@@ -1,7 +1,5 @@
 package com.virus.services.dto;
 
-import java.time.LocalDate;
-
 import org.springframework.stereotype.Service;
 
 import com.virus.model.database.entity.AppUser;
@@ -18,9 +16,7 @@ public class UserConverterService extends AbstractDtoConverterService<AppUser, A
 		user.setEmail(dto.getEmail());
 		user.setUsername(dto.getUsername());
 		user.setPassword(dto.getPassword());
-		user.setBirthDate(LocalDate.parse(dto.getBirthDate()));
 		user.setRoles(dto.getRoles());
-		user.setActivationCode(dto.getActivationCode());
 		user.setEnableAccount(dto.getEnableAccount());
 		
 		return user;
@@ -34,14 +30,12 @@ public class UserConverterService extends AbstractDtoConverterService<AppUser, A
 		dto.setEmail(entity.getEmail());
 		dto.setUsername(entity.getUsername());
 		dto.setPassword(entity.getPassword());
-		dto.setBirthDate(entity.getBirthDate().toString());
 		dto.setRoles(entity.getRoles());
 		dto.setEnableAccount(entity.getEnableAccount());
 		dto.setLastPasswordChange(entity.getLastPasswordChange());
 		dto.setNextPasswordChange(entity.getNextPasswordChange());
 		dto.setCreateTime(entity.getCreateTime());
 		dto.setUpdateTime(entity.getUpdateTime());
-		dto.setActivationCode(entity.getActivationCode());
 
 		return dto;
 	}

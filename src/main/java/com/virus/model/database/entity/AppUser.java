@@ -1,6 +1,5 @@
 package com.virus.model.database.entity;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.HashSet;
@@ -8,7 +7,6 @@ import java.util.stream.Collectors;
 
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -20,6 +18,9 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.Email;
 
 
 @Entity
@@ -38,15 +39,13 @@ public class AppUser implements UserDetails{
 	
 	@Column(unique = true, nullable = false)
 	private String username;
+	
+	@Email
 	@Column(unique = true, nullable = false)
 	private String email;
 	
-	
 	@Column(nullable = false)
 	private String password;
-
-	@Column(nullable=false)
-	private LocalDate birthDate;
 	
 	@Column(nullable=false)
 	private Boolean enableAccount;
@@ -70,10 +69,10 @@ public class AppUser implements UserDetails{
 	
 	private LocalDateTime nextPasswordChange;
 	
-	@Column(nullable = true)
-	private String activationCode;
-	
 	private HashSet<UserRole> roles;
+
+	@OneToOne(mappedBy = "user")
+	private PlayerEntity player;
 	
 	public AppUser() {
 		super();
@@ -89,7 +88,6 @@ public class AppUser implements UserDetails{
 		this.createTime = LocalDateTime.now();
 		this.updateTime = LocalDateTime.now();
 	}
-	
 	
 	public Long getId() {
 		return id;
@@ -173,14 +171,6 @@ public class AppUser implements UserDetails{
 		this.email = email;
 	}
 
-	public LocalDate getBirthDate() {
-		return birthDate;
-	}
-
-	public void setBirthDate(LocalDate birthDate) {
-		this.birthDate = birthDate;
-	}
-
 	public LocalDateTime getCreateTime() {
 		return createTime;
 	}
@@ -227,14 +217,6 @@ public class AppUser implements UserDetails{
 
 	public void setNextPasswordChange() {
 		this.nextPasswordChange = LocalDateTime.now().plusMonths(3L);
-	}
-
-	public String getActivationCode() {
-		return activationCode;
-	}
-
-	public void setActivationCode(String activationCode) {
-		this.activationCode = activationCode;
 	}
 
 	public HashSet<UserRole> getRoles() {

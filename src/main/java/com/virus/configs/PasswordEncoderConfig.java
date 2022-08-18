@@ -8,13 +8,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class PasswordEncoderConfig {
 
-	/*
-	 * Password encoder configuration class. It is required to use Spring Security.
-	 * 
-	 * It is annotated as a @Bean
-	 */
-	@Bean
-	public PasswordEncoder passwordEnconder() {
-		return new BCryptPasswordEncoder();
-	}
+    /*
+     * Password encoder configuration class. It is required to use Spring Security.
+     * 
+     * It is annotated as a @Bean
+     */
+    @Bean
+    PasswordEncoder passwordEnconder() {
+        return new BCryptPasswordEncoder();
+    }
 }
