@@ -1,5 +1,6 @@
 package com.virus.model.database.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.virus.model.enumerateds.Status;
@@ -21,7 +22,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RoomEntity {
+public class RoomEntity implements Serializable {
+
+	private static final long serialVersionUID = -7218161443582260085L;
 
 	@Id
 	private Long id;

@@ -56,7 +56,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers(HttpMethod.POST, "/auth/sign-in").not().authenticated()
 				.antMatchers(HttpMethod.GET, "/user/*").permitAll()
 				.antMatchers(HttpMethod.GET, "/user/me").hasRole("MEMBER")
-				.anyRequest().authenticated()
+				.anyRequest().permitAll()
+				//.anyRequest().authenticated()
 			
 			.and() // We define the implementation of the authentication and authorization filter.
 				.addFilter(new UsernamePasswordAuthenticationFilterImpl(authenticationManagerBean()))

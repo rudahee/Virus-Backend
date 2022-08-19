@@ -27,10 +27,6 @@ import jakarta.validation.constraints.Email;
 @EntityListeners(AuditingEntityListener.class)
 public class AppUser implements UserDetails{
 
-	
-	/**
-	 * Generated serialVersionUID
-	 */
 	private static final long serialVersionUID = -6310418546532088686L;
 
 	@Id

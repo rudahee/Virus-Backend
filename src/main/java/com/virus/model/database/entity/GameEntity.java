@@ -1,5 +1,6 @@
 package com.virus.model.database.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -18,7 +19,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GameEntity {
+public class GameEntity implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1327513979893047065L;
 
 	@Id
 	@GeneratedValue

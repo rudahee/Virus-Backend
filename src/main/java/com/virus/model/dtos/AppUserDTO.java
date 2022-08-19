@@ -20,15 +20,19 @@ public class AppUserDTO {
 	private Long id;
 	
 	private String username;
+	
 	private String password;
+	
 	private String email;
 	
 	private String birthDate;
 		
 	private LocalDateTime createTime;
+	
 	private LocalDateTime updateTime;
 		
 	private LocalDateTime lastPasswordChange;
+	
 	private LocalDateTime nextPasswordChange;
 	
 	private Boolean enableAccount;
@@ -36,6 +40,7 @@ public class AppUserDTO {
 	private HashSet<UserRole> roles;
 
 	private String activationCode;
+	
 	private String imageProfile;
 
 
