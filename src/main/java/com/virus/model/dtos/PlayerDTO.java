@@ -1,5 +1,7 @@
 package com.virus.model.dtos;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -14,4 +16,6 @@ import lombok.NoArgsConstructor;
 public class PlayerDTO {
 	
 	private String publicUsername;
+	
+	private List<CardDTO> cards;
 }

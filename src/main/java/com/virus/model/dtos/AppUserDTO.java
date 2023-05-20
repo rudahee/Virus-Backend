@@ -2,6 +2,7 @@ package com.virus.model.dtos;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
+import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -37,7 +38,7 @@ public class AppUserDTO {
 	
 	private Boolean enableAccount;
 	
-	private HashSet<UserRole> roles;
+	private Set<UserRole> roles;
 
 	private String activationCode;
 	

@@ -3,6 +3,7 @@ package com.virus.model.database.entity;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.hibernate.annotations.UpdateTimestamp;
@@ -65,7 +66,7 @@ public class AppUser implements UserDetails{
 	
 	private LocalDateTime nextPasswordChange;
 	
-	private HashSet<UserRole> roles;
+	private Set<UserRole> roles;
 
 	@OneToOne(mappedBy = "user")
 	private PlayerEntity player;
@@ -215,11 +216,11 @@ public class AppUser implements UserDetails{
 		this.nextPasswordChange = LocalDateTime.now().plusMonths(3L);
 	}
 
-	public HashSet<UserRole> getRoles() {
+	public Set<UserRole> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(HashSet<UserRole> set) {
+	public void setRoles(Set<UserRole> set) {
 		this.roles = set;
 	}
 
