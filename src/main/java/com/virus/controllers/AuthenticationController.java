@@ -1,5 +1,7 @@
 package com.virus.controllers;
 
+import java.util.logging.Logger;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,11 +52,15 @@ public class AuthenticationController {
 		try {
 			// We dont need control anything here, Security package do.
 
+			Logger.global.info("USUARIO RECIBIDO: \n" + user.toString());
+			
 			user = service.signUpUser(user);
 			response = ResponseEntity.status(HttpStatus.OK).body(ErrorCode.NO_ERROR);
 		} catch (UserManagementException ex) {
+			ex.printStackTrace();
 			response = ResponseEntity.status(HttpStatus.NOT_FOUND).body(ErrorCode.TOKEN_EXPIRED); //TOKEN_EXPIRED BC I CAN! /!\ Remind change later.
 		} catch (Exception ex) {
+			ex.printStackTrace();
 			response = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ErrorCode.INDETERMINATE_ERROR);
 		}
 		return response;

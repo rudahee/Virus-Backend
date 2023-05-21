@@ -53,7 +53,7 @@ public class UserService extends AbstractEntityService<AppUser, AppUserDTO, Abst
 		String activationCode = UUID.randomUUID().toString().substring(0, 5);
 		user.setActivationCode(activationCode);
 		user.setEnableAccount(false);
-		user.setRoles((HashSet<UserRole>) Set.of(UserRole.MEMBER));
+		user.setRoles((Set<UserRole>) Set.of(UserRole.MEMBER));
 		user.setPassword(passEncoder.encode(user.getPassword()));
 		
 		
